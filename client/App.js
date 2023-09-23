@@ -10,7 +10,7 @@ const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return ( 
   <WelcomeWrapper>
-    { isLoggedIn === true ? 
+    { isLoggedIn === false ? 
     <ClimbsContainer/> : <Login/> }
   </WelcomeWrapper>
   )
