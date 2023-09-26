@@ -5,7 +5,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { createUserName, createPassword } from '../userSlice'
 
-
+// login: (state, action) => {
+//   state.loggedIn = true;
+// },
+// logout: (state,action) => {
+//   state.loggedIn = false;
+// }
 
 
 const Login = () => {
@@ -49,19 +54,20 @@ flex-direction: column;
 justify-content: space-around;
 align-items: center;
 border: 1px solid black;
-border-radius: 7px;
+border-radius: 25px;
 width: 350px;
 height: 600px;
 background-image: url("https://images.unsplash.com/photo-1620578503205-f9ad8c4d50c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
 background-size: cover;
 background-repeat: no-repeat;
+font-family: var(--main-font);
 `
 
 const WelcomeBanner = styled.div `
 display: flex;
 flex-direction: column;
 border: 1px solid black;
-border-radius: 7px;
+border-radius: 25px;
 width: 350px;
 h1{
     text-align: center;
@@ -72,7 +78,7 @@ const Credentials = styled.div `
 display: flex;
 flex-direction: column;
 border: 1px solid white;
-border-radius: 7px;
+border-radius: 25px;
 background: white opacity: 1;
 width: 225px;
 padding: 30px;
@@ -82,14 +88,16 @@ gap: 10px;
 const LoginSubmit = styled.button`
 background: white;
 text-align: center;
-border-radius: 7px;
+border-radius: 25px;
 border: 1px solid white;
 align-items: center;
 justify-contet: center;
+padding: 5px;
 `
 const LoginInput = styled.input`
 background: white;
 border: 1px solid white;
-border-radius: 7px
+border-radius: 25px
+padding: 5px;
 `
 export default Login;

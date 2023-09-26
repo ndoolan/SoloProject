@@ -31,10 +31,10 @@ module.exports = {
     })],
     devServer: {
         static: {
-            publicPath: '/build',
-            directory: path.resolve(__dirname, 'build'),
+            publicPath: "./client/public",
+            directory: path.join(__dirname, "client/public"),
         },
         port: 8080,
-        // historyApiFallback: true,
+        historyApiFallback: true,
     },
 }

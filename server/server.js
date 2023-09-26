@@ -25,15 +25,11 @@ mongoose.connect(process.env.URI)
 app.use('/build', express.static(path.resolve(__dirname, '../build')));
 
 // initial get request
-app.get('/login', (req,res) => {
-    console.log('test')
-    return res.status(200).sendFile(path.resolve(__dirname,'build', 'index.html'))
+app.get('*', (req,res) => {
+    console.log('no build')
+     res.status(200).sendFile(path.resolve(__dirname, '..','build', 'index.html'))
 });
 
-app.get('/home', (req,res) => {
-
-    return res.status(200).sendFile(path.resolve(__dirname,'build', 'index.html'))
-});
 
 // signup routes
 app.post('/signup', userController.createUser, (req, res) => {
@@ -42,8 +38,7 @@ app.post('/signup', userController.createUser, (req, res) => {
 
 // login routes 
 app.post('/', userController.verifyUser, (req, res) => {
-    console.log('fina')
-    return res.redirect('/home')
+    return res.status(200).json('true')
 })
 
 // catch all
