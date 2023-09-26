@@ -1,0 +1,19 @@
+{
+    "totalClimbs": [
+        {
+           "name": "New Pair",
+           "grade": 7,
+           "location": "Joe's Valley" 
+        },
+        {
+            "name": "The Angler",
+            "grade": 2,
+            "location": "Joe's Valley"
+        },
+        {
+            "name": "Worst Case",
+            "grade": 9,
+            "location": "Joe's Valley"
+        }
+    ]
+}

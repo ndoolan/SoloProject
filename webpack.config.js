@@ -35,5 +35,6 @@ module.exports = {
             directory: path.resolve(__dirname, 'build'),
         },
         port: 8080,
+        // historyApiFallback: true,
     },
 }

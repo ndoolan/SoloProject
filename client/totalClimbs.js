@@ -12,3 +12,5 @@ export const totalClimbs = createSlice({
 
     }
 })
+
+export default totalClimbs.reducer;
