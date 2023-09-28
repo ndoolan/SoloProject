@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, useEffect } from 'react-redux'
 import axios from 'axios'
-import { createUserName, createPassword } from '../userSlice'
+import { createUserName, createPassword, login } from '../userSlice'
+import { useNavigate } from 'react-router-dom'
 
 // login: (state, action) => {
 //   state.loggedIn = true;
@@ -15,13 +16,61 @@ import { createUserName, createPassword } from '../userSlice'
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { username, password } = useSelector(state=> state.user)
+  const navigate = useNavigate();
+  const { username, password, loggedIn } = useSelector(state=> state.user)
 
-  const submitLogin = () => {
-    axios.post('http://localhost:3000/', {'username': username, 'password': password})
-      .then(data => console.log(data))
-      .catch(err => console.log(err))
+  // useEffect(() => {
+  //   loggedIn()
+  // }, [])
+  
 
+// CORRECT ASYNC POST
+  // const submitLogin = () => {
+  //   axios.post('http://localhost:3000/', {'username': username, 'password': password})
+  //     .then(data => console.log(data))
+  //     .catch(err => console.log(err))
+
+  // }
+  // Temporary FETCH request check for Logging In
+  // const submitLogin = () => {
+  //   fetch('http://localhost:3000/', {
+  //      credentials: 'include',
+  //      mode: 'no-cors',
+  //      method: 'POST',
+  //      body: JSON.stringify({
+  //        'username': username,
+  //        'password': password,
+  //      }),
+  //    })
+  //        if(data == 'true'){
+  //     dispatch(login(data))
+  //     navigate('/home')
+  //    } else {
+  //     dispatch(login('false'))
+  //     // console.log(loggedIn)
+  //    }
+  //  }
+
+  // TESTING CORS / CREDENTIALS 
+  // ORIGINAL LOGIN REQUEST USING AXIOS
+  const submitLogin = async () => {
+    const { data } = await axios.post(
+      'http://localhost:3000/',
+        {
+      withCredentials: true,
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      'username': username, 'password': password,
+    })
+    console.log(data)
+     if(data == 'true'){
+      dispatch(login(data))
+      navigate('/home')
+     } else {
+      dispatch(login('false'))
+      // console.log(loggedIn)
+     }
   }
 
 
@@ -66,11 +115,11 @@ font-family: var(--main-font);
 const WelcomeBanner = styled.div `
 display: flex;
 flex-direction: column;
-border: 1px solid black;
 border-radius: 25px;
 width: 350px;
 h1{
-    text-align: center;
+    text-align: right;
+    margin: 0px 45px;
 }
 background-image: url("public/outside.jpg");
 `
@@ -79,7 +128,7 @@ display: flex;
 flex-direction: column;
 border: 1px solid white;
 border-radius: 25px;
-background: white opacity: 1;
+background: rgb(172,187,209) opacity: .2;
 width: 225px;
 padding: 30px;
 gap: 10px;
@@ -93,6 +142,10 @@ border: 1px solid white;
 align-items: center;
 justify-contet: center;
 padding: 5px;
+cursor: pointer;
+&:hover {
+  background: rgb(222, 228, 237);
+}
 `
 const LoginInput = styled.input`
 background: white;

@@ -4,6 +4,7 @@ const initialState = {
     username: '',
     password: '',
     loggedIn: 'false',
+    createClimb: 'false',
 }
 
 export const userSlice = createSlice({
@@ -21,9 +22,12 @@ export const userSlice = createSlice({
         },
         logout: (state,action) => {
             state.loggedIn = false;
+        },
+        createClimb: (state,action) => {
+            state.createClimb = true;
         }
     }
 })
 
-export const { createUserName, createPassword } = userSlice.actions;
+export const { createUserName, createPassword, login, logout, createClimb } = userSlice.actions;
 export default userSlice.reducer;

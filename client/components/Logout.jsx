@@ -14,9 +14,19 @@ const Logout = () => {
 
 const LogoutButton = styled.button`
 background: white;
-color: black;
-padding: 5px;
-margin: 20px;
+text-align: center;
+border-radius: 20px;
+width: 100px;
+border: 1px solid white;
+box-shadow: 5px 5px 2px grey;
+align-items: center;
+justify-content: center;
+padding: 10px;
+margin: 25px;
+cursor: pointer;
+&:hover {
+  background: rgb(222, 228, 237);
+}
 `
 
 

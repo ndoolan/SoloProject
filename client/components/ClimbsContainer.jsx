@@ -6,14 +6,17 @@ import Logout from './Logout.jsx'
 import {Routes, Route} from 'react-router-dom'
 import ClimbStats from './ClimbStats.jsx'
 import CreateClimb from './CreateClimb.jsx'
+import { UseSelector } from 'react-redux/es/hooks/useSelector.js'
 
 
 
 const ClimbsContainer = () => {
+
+
   return (
     <MainContainer>
         <DisplayContainer>
-           <ClimbDisplay/>
+           <CreateClimb/>
         </DisplayContainer>
         
         <ClimbsButtons/>
@@ -26,11 +29,12 @@ const MainContainer = styled.div`
 display: flex;
 flex-direction: column; 
 align-items: center;
-background: rgb(161,91,64);
+background: rgb(220, 174, 137);
+box-shadow: 10px 10px 5px grey;
 height: 600px;
 width: 350px;
 border: 1px solid black;
-border-radius: 7px;
+border-radius: 25px;
 `
 
 const DisplayContainer = styled.div`
@@ -41,9 +45,12 @@ align-items: center;
 height: 301px;
 width: 301px;
 border: 1px solid black;
-border-radius: 7px;
-background: white;
+border-radius: 25px;
+background: rgb(222, 228, 237);
 margin: 20px;
 `
+
+//rgb(222, 228, 237)
+
 
 export default ClimbsContainer
