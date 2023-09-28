@@ -4,10 +4,11 @@ const bcrypt = require('bcrypt')
 const userController = {};
 
 userController.createUser = async (req, res, next) => {
-    try{
+    try {
     const { username, password } = req.body
-    console.log(username, password)
+    
     const newUser = await User.create({username: username, password: password})
+    
     res.locals.user = newUser;
         next()
     } catch (error) {
@@ -21,19 +22,19 @@ userController.createUser = async (req, res, next) => {
 
 userController.verifyUser = async (req, res, next) => {
     try {
+       
         const { username, password } = req.body
         const user = await User.findOne({"username": username});
-        
         if(!user) {
           console.log('no user')
         } else {
-            console.log(user.password)
-            console.log(password)
             bcrypt.compare(password, user.password)
             .then((result) => {
-                console.log(true)
-                if(result) return next()
-        }
+                if(result) {
+                    res.locals.user = user;
+                    return next()
+                }
+            }
         )}        
     } catch (error) {
         return next({

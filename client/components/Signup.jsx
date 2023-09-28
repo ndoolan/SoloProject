@@ -21,15 +21,15 @@ const Signup = () => {
 
   return (
     <SignupWrapper>
-        Signup
+        <Header>Sign Up</Header>
         <Credentials>
-        <input type="text" name="username" id="username" placeholder="username" onChange={(e)=>{
+        <SignUpInput type="text" name="username" id="username" placeholder="username" onChange={(e)=>{
             dispatch(createUserName(e.target.value));
         }}/>
-        <input type="password" name="password" id="password" placeholder="password" onChange={(e)=>{
+        <SignUpInput type="password" name="password" id="password" placeholder="password" onChange={(e)=>{
             dispatch(createPassword(e.target.value))
         }}/>
-        <button name="signup" onClick={sendCredentials}>Submit</button>
+        <SignUpSubmit name="signup" onClick={sendCredentials}>Submit</SignUpSubmit>
         <Link to="/">Back</Link>
         </Credentials>
     </SignupWrapper>
@@ -42,7 +42,7 @@ flex-direction: column;
 justify-content: space-around;
 align-items: center;
 border: 1px solid black;
-border-radius: 7px;
+border-radius: 25px;
 width: 350px;
 height: 600px;
 background-image: url("https://images.unsplash.com/photo-1601224748193-d24f166b5c77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9jayUyMGNsaW1iaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=600");
@@ -53,12 +53,35 @@ background-repeat: no-repeat;
 const Credentials = styled.div `
 display: flex;
 flex-direction: column;
-border: 1px solid black;
-border-radius: 7px;
+border-radius: 25px;
 background-color: grey opacity: 0.6;
 width: 225px;
 padding: 30px;
 gap: 10px;
+`
+const SignUpSubmit = styled.button`
+background: white;
+text-align: center;
+border-radius: 25px;
+border: 1px solid white;
+align-items: center;
+justify-contet: center;
+padding: 5px;
+cursor: pointer;
+&:hover {
+  background: rgb(222, 228, 237);
+}
+`
+
+const SignUpInput = styled.input`
+background: white;
+border: 1px solid white;
+border-radius: 25px
+padding: 5px;
+`
+const Header = styled.h1`
+display: flex;
+color: white;
 `
 
 export default Signup

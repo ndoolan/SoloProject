@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack",
-    "dev": "webpack serve --open"
+    "dev": "nodemon server/server.js & webpack serve --mode development --open --hot"
   },
   "keywords": [],
   "author": "",
