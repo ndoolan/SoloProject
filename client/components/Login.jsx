@@ -19,10 +19,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { username, password, loggedIn } = useSelector(state=> state.user)
 
-  // useEffect(() => {
-  //   loggedIn()
-  // }, [])
-  
 
 // CORRECT ASYNC POST
   // const submitLogin = () => {
@@ -31,39 +27,14 @@ const Login = () => {
   //     .catch(err => console.log(err))
 
   // }
-  // Temporary FETCH request check for Logging In
-  // const submitLogin = () => {
-  //   fetch('http://localhost:3000/', {
-  //      credentials: 'include',
-  //      mode: 'no-cors',
-  //      method: 'POST',
-  //      body: JSON.stringify({
-  //        'username': username,
-  //        'password': password,
-  //      }),
-  //    })
-  //        if(data == 'true'){
-  //     dispatch(login(data))
-  //     navigate('/home')
-  //    } else {
-  //     dispatch(login('false'))
-  //     // console.log(loggedIn)
-  //    }
-  //  }
+ 
 
   // TESTING CORS / CREDENTIALS 
   // ORIGINAL LOGIN REQUEST USING AXIOS
   const submitLogin = async () => {
     const { data } = await axios.post(
-      'http://localhost:3000/',
-        {
-      withCredentials: true,
-      headers: {
-        'Content-Type' : 'application/json'
-      },
-      'username': username, 'password': password,
-    })
-    console.log(data)
+      '/', {'username': username, 'password': password}, {withCredentials:true})
+      console.log(data)
      if(data == 'true'){
       dispatch(login(data))
       navigate('/home')

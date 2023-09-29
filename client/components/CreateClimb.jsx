@@ -1,27 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { setClimbName, setGrade, setLocation } from '../totalClimbs'
+import { setClimbName, setGrade, setLocation, setTotalClimbs } from '../totalClimbs'
 import axios from 'axios'
 
 const CreateClimb = () => {
   const dispatch = useDispatch()
-  const {name, grade, location} = useSelector(state => state.climbsReducer)
+  const {name, grade, location, totalClimbs} = useSelector(state => state.climbsReducer)
 
+  // Creating a new climb and updating total Climbs state
   const sendNewClimb = async () => {
     const { data } = await axios.post(
-      'http://localhost:3000/home',
-        {
-      withCredentials: true,
-      headers: {
-        'Content-Type' : 'application/json'
-      },
-      'name': name, 'grade': grade, 'location': location
-    })
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+      '/home', {'name': name, 'grade': grade, 'location': location}, {withCredentials: true})
+    dispatch(setTotalClimbs(data))
   }
-
+// setting total climbs array has bugs
 
  
   return (

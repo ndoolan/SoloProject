@@ -20,9 +20,12 @@ export const totalClimbs = createSlice({
         },
         setLocation: (state, action) => {
             state.location = action.payload;
+        },
+        setTotalClimbs: (state, action) => {
+            state.totalClimbs = action.payload;
         }
     }
 })
 
-export const { setClimbName, setGrade, setLocation } = totalClimbs.actions;
+export const { setClimbName, setGrade, setLocation, setTotalClimbs } = totalClimbs.actions;
 export default totalClimbs.reducer;

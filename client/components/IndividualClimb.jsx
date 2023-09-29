@@ -1,8 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
-const IndividualClimb = () => {
+const IndividualClimb = ( { name }) => {
+  const {totalClimbs} = useSelector(state=> state.climbsReducer)
+
   return (
-    <div>Individual Climb Comp.</div>
+    <>
+    <p>hi</p>
+    <p>{name}</p>
+    </>
   )
 }
 

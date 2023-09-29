@@ -7,7 +7,7 @@ const SALT_WORK_FACTOR = 10;
 
 const climbSchema = new Schema({
     name: {type: String, required: true},
-    grade: {type: Number, required: true},
+    grade: {type: String, required: true},
     location: {type: String, required: true},
 });
 

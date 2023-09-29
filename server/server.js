@@ -53,7 +53,13 @@ mongoose.connect(process.env.URI)
 
 app.use('/build', express.static(path.resolve(__dirname, '../build')));
 
-// initial get request
+// temporarily adding this before catch all for now
+app.get('/home', climbController.getTotalClimbs, (req, res) => {
+    console.log(res.locals.totalClimbs)
+    return res.status(200)
+})
+
+// // initial get request
 app.get('*', (req,res) => {
     console.log('no build')
      res.status(200).sendFile(path.resolve(__dirname, '..','build', 'index.html'))
@@ -62,7 +68,7 @@ app.get('*', (req,res) => {
 
 // signup routes
 app.post('/signup', userController.createUser, (req, res) => {
-    return res.status(200).json(res.locals.user)
+    return res.status(200).json('true')
 })
 
 // login routes 
@@ -70,25 +76,28 @@ app.post('/',
     userController.verifyUser, 
     cookieController.setCookie,  
     (req, res) => {
-        console.log(res.cookies)
+  console.log('last stop')
     return res.status(200).json('true')
 })
 
-// create climb routes
-// removing create climb controller for now
+// CLIMB ROUTES
+// Create Climb
 app.post('/home', climbController.createClimb, (req, res) => {
-    console.log('test')
-    return res.status(200).send('success')
+    console.log(res.locals.totalClimbs)
+    return res.status(200).json(res.locals.totalClimbs)
+})
+
+// Get All Climbs
+app.get('/home', climbController.getTotalClimbs, (req, res) => {
+    return res.status(200)
 })
 
 
-// catch all
+// // initial get request
 // app.get('*', (req,res) => {
-//     console.log('test')
-//     return res.status(200).sendFile(path.resolve(__dirname,'build', 'index.html'))
+//     console.log('no build')
+//      res.status(200).sendFile(path.resolve(__dirname, '..','build', 'index.html'))
 // });
-
-
 
 // catch-all w broser router
 // app.use('/*', (req, res) => {

@@ -24,12 +24,15 @@ userController.verifyUser = async (req, res, next) => {
     try {
        
         const { username, password } = req.body
+        console.log(username, password)
         const user = await User.findOne({"username": username});
+        
         if(!user) {
           console.log('no user')
         } else {
             bcrypt.compare(password, user.password)
             .then((result) => {
+                console.log(result)
                 if(result) {
                     res.locals.user = user;
                     return next()

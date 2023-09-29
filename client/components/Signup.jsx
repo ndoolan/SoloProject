@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { createUserName, createPassword } from '../userSlice'
+import { createUserName, createPassword, login } from '../userSlice'
 import axios from 'axios'
 
 const Signup = () => {
@@ -11,11 +11,18 @@ const Signup = () => {
     const dispatch = useDispatch();
     const { username, password } = useSelector(state=> state.user)
   // const 
-  const sendCredentials = () => {
-    console.log(username, password);
-    axios.post('http://localhost:3000/signup', {'username': username, 'password': password})
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
+  const sendCredentials = async () => {
+    const { data } = await axios.post(
+      '/signup', {'username': username, 'password': password}, {withCredentials:true})
+
+    console.log(data)
+    if(data == 'true'){
+     dispatch(login(data))
+     navigate('/home')
+    } else {
+     dispatch(login('false'))
+     // console.log(loggedIn)
+    }
   }
   
 

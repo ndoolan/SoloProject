@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { setTotalClimbs } from '../climbSlice'
 
 const ClimbsButtons = () => {
 
+  // read and setting the total climbs in state so it can be rendered
+  const getTotalClimbs = async () => {
+    const { data } = await axios.get(
+      '/home', {withCredentials:true})
+      console.log(data)
+   }
+
   return (
     <Container>
-        <ClimbFilterButton>All</ClimbFilterButton>
+        <ClimbFilterButton onClick={getTotalClimbs} >All</ClimbFilterButton>
         <ClimbFilterButton>Sort By Grade</ClimbFilterButton>
         <ClimbFilterButton>Sort By Location</ClimbFilterButton>
         <ClimbFilterButton>Stats</ClimbFilterButton>
@@ -26,10 +34,6 @@ border-radius: 20px;
 gap: 10px;
 padding: 10px;
 `
-// original
-//rgb(172,187,209)
-//test 
-// rgb(222, 228, 237)
 
 const ClimbFilterButton = styled.button`
 background: white;
