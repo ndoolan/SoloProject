@@ -37,7 +37,7 @@ const Display = styled.div`
   width: 300px;
   border-radius: 7px;
   background: rgb(222, 228, 237, .9);
-  margin: 20px;
+  margin-top: 20px;
   overflow: scroll;
 `;
 

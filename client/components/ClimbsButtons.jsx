@@ -3,8 +3,9 @@ import styled from "styled-components";
 import axios from "axios";
 import { setTotalClimbs } from "../totalClimbs";
 import { useDispatch } from "react-redux";
+import { createClimb } from "../userSlice"
 
-const ClimbsButtons = ( { showClimbs }) => {
+const ClimbsButtons = ({ toggle }) => {
   // read and setting the total climbs in state so it can be rendered
 const dispatch = useDispatch()
 
@@ -19,7 +20,7 @@ const dispatch = useDispatch()
       <ClimbFilterButton>Sort By Grade</ClimbFilterButton>
       <ClimbFilterButton>Sort By Location</ClimbFilterButton>
       <ClimbFilterButton>Stats</ClimbFilterButton>
-      <ClimbFilterButton onClick={showClimbs()}>Log Climb</ClimbFilterButton>
+      <ClimbFilterButton onClick={ ()=> dispatch(createClimb())}>Log Climb</ClimbFilterButton>
     </Container>
   );
 };
@@ -35,6 +36,7 @@ const Container = styled.div`
   border-radius: 20px;
   gap: 10px;
   padding: 10px;
+  margin-bottom: 20px;
 `;
 
 const ClimbFilterButton = styled.button`

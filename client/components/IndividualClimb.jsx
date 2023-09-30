@@ -17,12 +17,14 @@ const IndividualClimb = ({ name, key, grade, location }) => {
 const SingleClimbContainer = styled.div`
 display: flex;
 flex-direction: column;
-height: 150px;
+height: auto;
 width: 225px;
-border: 1px solid black;
 border-radius: 20px;
 background: white;
 padding: 10px;
+p {
+  margin: 0px;
+}
 `
 
 export default IndividualClimb;

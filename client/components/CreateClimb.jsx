@@ -53,9 +53,9 @@ const CreateClimb = () => {
           dispatch(setLocation(e.target.value));
         }}
       />
-      <button name="createClimb" onClick={sendNewClimb}>
+      <SubmitButton name="createClimb" onClick={sendNewClimb}>
         Submit
-      </button>
+      </SubmitButton>
     </CreateDisplay>
   );
 };
@@ -67,11 +67,28 @@ const CreateDisplay = styled.div`
   align-items: center;
   height: 300px;
   width: 300px;
-  border: 1px solid black;
   border-radius: 7px;
   margin: 20px;
   gap: 5px;
 `;
+
+const SubmitButton = styled.button`
+  background: white;
+  width: 150px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid white;
+  align-items: center;
+  justify-contet: center;
+  padding: 2px;
+  cursor: pointer;
+  &:hover {
+    background: rgb(69, 69, 69);
+    color: white;
+  }
+`;
+
+
 //background-image: url(https://www.desertsun.com/gcdn/presto/2019/09/20/PPAS/df245152-df77-4372-b31a-e055f81fb862-climbing-jtree1.jpeg?width=1320&height=882&fit=crop&format=pjpg&auto=webp)
 //https://www.desertsun.com/gcdn/presto/2019/09/20/PPAS/df245152-df77-4372-b31a-e055f81fb862-climbing-jtree1.jpeg?width=1320&height=882&fit=crop&format=pjpg&auto=webp
 

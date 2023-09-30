@@ -53,7 +53,7 @@ const Signup = () => {
         <SignUpSubmit name="signup" onClick={sendCredentials}>
           Sign Up
         </SignUpSubmit>
-        <Link to="/">Back</Link>
+        <StyledLink to="/">Back</StyledLink>
       </Credentials>
     </SignupWrapper>
   );
@@ -87,8 +87,6 @@ const SignUpSubmit = styled.button`
   text-align: center;
   border-radius: 25px;
   border: 1px solid white;
-  align-items: center;
-  justify-contet: center;
   padding: 5px;
   cursor: pointer;
   &:hover {
@@ -106,5 +104,10 @@ const Header = styled.h1`
   display: flex;
   color: white;
 `;
+
+const StyledLink = styled(Link)`
+color: black;
+text-align: right;
+`
 
 export default Signup;

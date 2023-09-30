@@ -6,6 +6,7 @@ climbController.getTotalClimbs = async (req, res, next) => {
   try {
     const { Ticklist_ID } = req.cookies;
     const user = await User.findById({ _id: Ticklist_ID });
+    console.log(user)
     res.locals.totalClimbs = user.totalClimbs;
     return next();
   } catch (error) {

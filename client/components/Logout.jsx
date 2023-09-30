@@ -6,11 +6,19 @@ const Logout = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <LogoutDiv>
       <LogoutButton onClick={() => navigate("/")}>Logout</LogoutButton>
-    </div>
+    </LogoutDiv>
   );
 };
+
+const LogoutDiv = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+width: 100%;
+margin: 3px;
+`
 
 const LogoutButton = styled.button`
   background: white;

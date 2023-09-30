@@ -7,19 +7,20 @@ import { Routes, Route } from "react-router-dom";
 import ClimbStats from "./ClimbStats.jsx";
 import CreateClimb from "./CreateClimb.jsx";
 import IndividualClimb from "./IndividualClimb.jsx";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { createClimb } from '../userSlice'
 
 const ClimbsContainer = () => {
-  const [showClimbs, setShowClimbs] = useState(false);
-
+  const { createClimb : toggle } = useSelector(state => state.user)
+  console.log(toggle)
   return (
     <MainContainer>
       <Logout />
       <DisplayContainer>
-        <ClimbDisplay showClimbs = {showClimbs} />
+        {toggle ? <ClimbDisplay/> : <CreateClimb/>}
+       
       </DisplayContainer>
-
-      <ClimbsButtons showClimbs = {setShowClimbs} />
+      <ClimbsButtons toggle = {toggle}/>
     </MainContainer>
   );
 };
@@ -40,7 +41,7 @@ const MainContainer = styled.div`
 const DisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 301px;
   width: 281px;
@@ -48,6 +49,7 @@ const DisplayContainer = styled.div`
   border-radius: 25px;
   background: rgb(222, 228, 237, .9);
   margin: 15px;
+  padding: 10px;
   gap: 10px;
 `;
 //blue

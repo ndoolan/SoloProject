@@ -69,7 +69,7 @@ const Login = () => {
         <LoginSubmit name="login" onClick={submitLogin}>
           Log In
         </LoginSubmit>
-        <Link to="signup">Click to sign up!</Link>
+        <StyledLink to="signup">Click to Sign Up!</StyledLink>
       </Credentials>
     </LoginWrapper>
   );
@@ -133,5 +133,10 @@ padding: 5px;
 const ChalkTitle = styled.h1`
 color: white;
 font-size: 45px
+`
+
+const StyledLink = styled(Link)`
+color: black;
+text-align: right;
 `
 export default Login;
