@@ -21,7 +21,7 @@ const Signup = () => {
     console.log(data);
     if (data == "true") {
       dispatch(login(data));
-      navigate("/home");
+      navigate("/climbs");
     } else {
       dispatch(login("false"));
       // console.log(loggedIn)
@@ -51,7 +51,7 @@ const Signup = () => {
           }}
         />
         <SignUpSubmit name="signup" onClick={sendCredentials}>
-          Submit
+          Sign Up
         </SignUpSubmit>
         <Link to="/">Back</Link>
       </Credentials>
@@ -68,7 +68,7 @@ const SignupWrapper = styled.div`
   border-radius: 25px;
   width: 350px;
   height: 600px;
-  background-image: url("https://images.unsplash.com/photo-1601224748193-d24f166b5c77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9jayUyMGNsaW1iaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=600");
+  background-image: url("https://cdn.climbing.com/wp-content/uploads/2021/08/matt-2-scaled-e1621260854432.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
 `;
@@ -77,7 +77,7 @@ const Credentials = styled.div`
 display: flex;
 flex-direction: column;
 border-radius: 25px;
-background-color: grey opacity: 0.6;
+background: rgb(172,187,209, .9);
 width: 225px;
 padding: 30px;
 gap: 10px;

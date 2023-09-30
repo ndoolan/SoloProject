@@ -16,17 +16,15 @@ const LogoutButton = styled.button`
   background: white;
   text-align: center;
   border-radius: 20px;
-  width: 100px;
-  border: 1px solid white;
-  box-shadow: 5px 5px 2px grey;
-  align-items: center;
+  width: 80px;
   justify-content: center;
-  padding: 10px;
-  margin: 25px;
+  padding: 5px;
+  margin: 5px;
   cursor: pointer;
   &:hover {
     background: rgb(222, 228, 237);
   }
 `;
+
 
 export default Logout;

@@ -48,7 +48,7 @@ app.use("/build", express.static(path.resolve(__dirname, "../build")));
 // temporarily adding this before catch all for now
 app.get("/home", climbController.getTotalClimbs, (req, res) => {
   console.log(res.locals.totalClimbs);
-  return res.status(200);
+  return res.status(200).json(res.locals.totalClimbs)
 });
 
 // // initial get request

@@ -37,7 +37,7 @@ const Login = () => {
     console.log(data);
     if (data == "true") {
       dispatch(login(data));
-      navigate("/home");
+      navigate("/climbs");
     } else {
       dispatch(login("false"));
       // console.log(loggedIn)
@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <LoginWrapper>
       <WelcomeBanner>
-        <h1>Ticklist</h1>
+        <ChalkTitle>ChalkUp</ChalkTitle>
       </WelcomeBanner>
       <Credentials>
         <LoginInput
@@ -67,7 +67,7 @@ const Login = () => {
           }}
         />
         <LoginSubmit name="login" onClick={submitLogin}>
-          Chalk Up?
+          Log In
         </LoginSubmit>
         <Link to="signup">Click to sign up!</Link>
       </Credentials>
@@ -84,7 +84,7 @@ const LoginWrapper = styled.div`
   border-radius: 25px;
   width: 350px;
   height: 600px;
-  background-image: url("https://images.unsplash.com/photo-1620578503205-f9ad8c4d50c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+  background-image: url("https://i.pinimg.com/236x/f9/16/be/f916be3e865b0307124a523f75a864f5--chalk-rock-shoe-photography.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   font-family: var(--main-font);
@@ -96,17 +96,15 @@ const WelcomeBanner = styled.div`
   border-radius: 25px;
   width: 350px;
   h1 {
-    text-align: right;
-    margin: 0px 45px;
+    text-align: center;
   }
   background-image: url("public/outside.jpg");
 `;
 const Credentials = styled.div`
 display: flex;
 flex-direction: column;
-border: 1px solid white;
 border-radius: 25px;
-background: rgb(172,187,209) opacity: .2;
+background: rgb(172,187,209, .9);
 width: 225px;
 padding: 30px;
 gap: 10px;
@@ -131,4 +129,9 @@ border: 1px solid white;
 border-radius: 25px
 padding: 5px;
 `;
+
+const ChalkTitle = styled.h1`
+color: white;
+font-size: 45px
+`
 export default Login;
