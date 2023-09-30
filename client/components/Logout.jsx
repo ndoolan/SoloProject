@@ -1,13 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { setTotalClimbs } from "../totalClimbs";
+import { useDispatch } from "react-redux";
 
 const Logout = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+   // Logs user out and deletes cookies
+   const logout = async () => {
+    const { data } = await axios.post(
+      "/logout",
+      { withCredentials: true },
+    );
+    dispatch(setTotalClimbs([]))
+    navigate("/")
+  };
 
   return (
     <LogoutDiv>
-      <LogoutButton onClick={() => navigate("/")}>Logout</LogoutButton>
+      <LogoutButton onClick={() => logout()}>Logout</LogoutButton>
     </LogoutDiv>
   );
 };

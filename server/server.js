@@ -75,6 +75,16 @@ app.post(
   },
 );
 
+// logout route
+app.post(
+  "/logout",
+  cookieController.clearCookie,
+  (req, res) => {
+    console.log('outside cookie clear')
+    return res.status(200).json("Cookie Cleared")
+  }
+)
+
 // CLIMB ROUTES
 // Create Climb
 app.post("/home", climbController.createClimb, (req, res) => {

@@ -22,4 +22,17 @@ cookieController.setCookie = (req, res, next) => {
   }
 };
 
+cookieController.clearCookie = (req, res, next) => {
+  try {
+  res.clearCookie("Ticklist_ID")
+  return next();
+  } catch (error) {
+    return next({
+      log: "error occurred clearing user cookie",
+      status: 400,
+      message: { error: "Clearing Cookie Issue" },
+    })
+  }
+}
+
 module.exports = cookieController;

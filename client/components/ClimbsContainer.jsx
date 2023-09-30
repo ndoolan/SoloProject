@@ -12,7 +12,7 @@ import { createClimb } from '../userSlice'
 
 const ClimbsContainer = () => {
   const { createClimb : toggle } = useSelector(state => state.user)
-  console.log(toggle)
+ 
   return (
     <MainContainer>
       <Logout />
