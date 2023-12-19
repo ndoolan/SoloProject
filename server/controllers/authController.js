@@ -28,6 +28,7 @@ userController.verifyUser = async (req, res, next) => {
     const { username, password } = req.body;
     console.log(username, password);
     const user = await User.findOne({ username: username });
+  
 
     if (!user) {
       console.log("no user");

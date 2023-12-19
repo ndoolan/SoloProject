@@ -10,7 +10,7 @@ const ClimbsButtons = ({ toggle }) => {
 const dispatch = useDispatch()
 
   const getTotalClimbs = async () => {
-    const { data } = await axios.get("/home", { withCredentials: true });
+    const { data } = await axios.get("/climbs/getAllClimbs", { withCredentials: true });
     dispatch(setTotalClimbs(data));
   };
 

@@ -49,4 +49,25 @@ climbController.createClimb = async (req, res, next) => {
   }
 };
 
+climbController.deleteClimb = async (req, res, next) => {
+  console.log('inside dlete ')
+  try {
+    const { name } = req.body;
+    const { Ticklist_ID } = req.cookies;
+    console.log(Ticklist_ID )
+    const user = await User.findById({ _id: Ticklist_ID });
+    console.log(user)
+    // user.totalClimbs.findOneAndDelete(name)
+    // console.log(user.totalClimbs)
+    // res.locals.totalClimbs = user.totalClimbs
+  
+  } catch (error) {
+    return next({
+      log: "error occurred deleting the climb",
+      status: 400,
+      message: { error: "deletion method" },
+    })
+  }
+}
+
 module.exports = climbController;

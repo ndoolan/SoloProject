@@ -13,7 +13,7 @@ const Signup = () => {
   // const
   const sendCredentials = async () => {
     const { data } = await axios.post(
-      "/signup",
+      "/auth/signup",
       { username: username, password: password },
       { withCredentials: true },
     );
@@ -30,7 +30,7 @@ const Signup = () => {
 
   return (
     <SignupWrapper>
-      <Header>Sign Up</Header>
+      <Header>Join the Crew</Header>
       <Credentials>
         <SignUpInput
           type="text"

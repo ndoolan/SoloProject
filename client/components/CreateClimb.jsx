@@ -18,7 +18,7 @@ const CreateClimb = () => {
   // Creating a new climb and updating total Climbs state
   const sendNewClimb = async () => {
     const { data } = await axios.post(
-      "/home",
+      "/climbs/logClimb",
       { name: name, grade: grade, location: location },
       { withCredentials: true },
     );

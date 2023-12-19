@@ -12,7 +12,7 @@ const Logout = () => {
    // Logs user out and deletes cookies
    const logout = async () => {
     const { data } = await axios.post(
-      "/logout",
+      "/auth/logout",
       { withCredentials: true },
     );
     dispatch(setTotalClimbs([]))
@@ -47,6 +47,7 @@ const LogoutButton = styled.button`
     background: rgb(222, 228, 237);
   }
 `;
+
 
 
 export default Logout;

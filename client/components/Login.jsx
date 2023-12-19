@@ -30,7 +30,7 @@ const Login = () => {
   // ORIGINAL LOGIN REQUEST USING AXIOS
   const submitLogin = async () => {
     const { data } = await axios.post(
-      "/",
+      "/auth/login",
       { username: username, password: password },
       { withCredentials: true },
     );
